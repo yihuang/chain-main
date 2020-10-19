@@ -142,11 +142,11 @@ func initRootCmd(rootCmd *cobra.Command, encodingConfig params.EncodingConfig) {
 		config.SetRoot(clientCtx.HomeDir)
 		path := config.GenesisFile()
 
-		file, err := os.OpenFile(path, os.O_RDWR, 0644)
+		file, err := os.OpenFile(path, os.O_RDWR, 0600)
 		if err != nil {
 			return err
 		}
-		defer file.Close()
+		file.Close()
 		var genesis map[string]interface{}
 		if err := json.NewDecoder(file).Decode(&genesis); err != nil {
 			return err

@@ -954,12 +954,12 @@
     sha256 = "14x4ydifz23rzaylggvwbm3dwlv1bc6s0bclmkxck9nbjbqw89vy"
 
 ["github.com/google/renameio"]
-  sumVersion = "v1.0.0"
+  sumVersion = "v0.1.0"
   ["github.com/google/renameio".fetch]
     type = "git"
     url = "https://github.com/google/renameio"
-    rev = "ad9e5e50f5274088511afd58a920bf584f0a6b3b"
-    sha256 = "10cjyh4ic1558wjn7snflz651pbn2nbwyd7vbbjg6f6x1c2fj7h4"
+    rev = "f0e32980c006571efd537032e5f9cd8c1a92819e"
+    sha256 = "1ki2x5a9nrj17sn092d6n4zr29lfg5ydv4xz5cp58z6cw8ip43jx"
 
 ["github.com/google/uuid"]
   sumVersion = "v1.1.2"

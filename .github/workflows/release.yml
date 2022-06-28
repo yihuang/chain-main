@@ -5,22 +5,7 @@ on:
     tags:
       - "v*.*.*"
 jobs:
-  goreleaser:
-    runs-on: ubuntu-latest
-    environment: release
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: true
-      - name: setup release environment
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |-
-          echo 'GITHUB_TOKEN=${{secrets.GITHUB_TOKEN}}' > .release-env
-      - name: build and upload goreleaser binaries
-        run: make release
-
-  rocksdb-x86_64:
+  nix-bundle-x86_64:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
@@ -67,8 +52,8 @@ jobs:
           draft: true
           files: "${{ env.FILES }}"
 
-  rocksdb-aarch64-linux:
-    needs: ["goreleaser"]
+  nix-bundle-aarch64-linux:
+    needs: ["nix-bundle-x86_64"]
     runs-on: ubuntu-latest
     environment: release
     steps:
@@ -114,8 +99,9 @@ jobs:
           draft: true
           files: "${{ env.FILES }}"
 
-  rocksdb-x86_64-windows:    
-    needs: ["goreleaser"]
+  nix-bundle-x86_64-windows:
+    if: ${{ false }}
+    needs: ["nix-bundle-x86_64"]
     runs-on: windows-latest
     environment: release    
     steps:

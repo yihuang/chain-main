@@ -38,8 +38,6 @@ jobs:
           signingKey: "${{ secrets.CACHIX_SIGNING_KEY }}"
       - name: Run integration tests
         run: make nix-integration-test
-      - name: Build chain utils
-        run: nix-build -A chain-utils-testnet
       - name: Upload coverage report
         uses: codecov/codecov-action@v1
         with:

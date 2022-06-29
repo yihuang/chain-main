@@ -9,7 +9,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-    needs: ["goreleaser"]
     runs-on: ${{ matrix.os }}
     environment: release
     steps:

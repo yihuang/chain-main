@@ -99,7 +99,7 @@
               name = builtins.concatStringsSep "-" (
                 [ "chain-maind" ] ++
                 lib.optional (network != "mainnet") network ++
-                lib.optional (db_backend != "rocksdb") db_backend ++
+                lib.optional (db_backend != "goleveldb") db_backend ++
                 lib.optional (pkgtype != "nix") pkgtype
               );
               value =

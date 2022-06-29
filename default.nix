@@ -5,7 +5,7 @@
 , go_1_17
 , libwasmvm
 , rocksdb ? null
-, db_backend ? "rocksdb"
+, db_backend ? "goleveldb"
 , network ? "mainnet"  # mainnet|testnet
 , rev ? "dirty"
 , ledger_zemu ? false
